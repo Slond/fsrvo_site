@@ -96,10 +96,6 @@ def report(request):
 def attestate(request):
     if request.user.is_authenticated and request.user.student.school_name or request.user.is_staff:
         quiz = Quiz.objects.all()
-        file = os.path.dirname(__file__) + 'attestate.txt'
-        f = open(file, 'a', encoding='utf-8')
-        f.write(request.user.last_name + ' ' + request.user.first_name + '\n')
-        f.close()
         return render(request, 'main/attestate.html', context = {'quiz': quiz})
     else:
         return redirect('index')
@@ -108,6 +104,12 @@ def quiz_detail(request, number):
     if request.user.is_authenticated and request.user.student.school_name or request.user.is_staff:
         query = Quiz.objects.get(number=number)
         link = query.link+"/?iframe=1"
+
+        file = os.path.dirname(__file__) + 'attestate.txt'
+        f = open(file, 'a', encoding='utf-8')
+        f.write(request.user.last_name + ' ' + request.user.first_name + '\n')
+        f.close()
+
         return render(request, 'main/one_quiz.html', context = {'quiz':link})
     else:
         return redirect('index')
