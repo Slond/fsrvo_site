@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{{object.header}}
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-2 col-lg-2"></div>
+    <div class="col-md-8 col-lg-8">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'news' %}">Новости</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{object.header}}</li>
+            </ol>
+        </nav>
+        <p class="text-left fs-2">{{object.header}}</p>
+        <p class='text-left fs-3'>{{object.news_text}}</p>
+        <p class='text-left fs-4'>{{object.author}}</p>
+        <p class='text-left fs-6'>{{object.date|date:'d/m/Y'}}</p>
+    </div>
+    <div class="col-md-2 col-lg-2"></div>
+</div>
+{% endblock %}

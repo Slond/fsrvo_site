@@ -1,0 +1,38 @@
+header {
+    background-color: #001489;
+    color: #fff;
+}
+
+* {
+    font-family: 'Roboto', sans-serif; 
+}
+
+footer {
+    background-color: #001489;
+    color: #fff;
+}
+
+#boxes {
+    text-align: center;
+}
+
+#form_question {
+    text-indent: 2px;
+}
+
+
+.btn-lg {
+    width: 100%;
+}
+
+#boxes {
+    text-align: center;
+}
+
+.student-rangs {
+    word-wrap: break-word;
+}
+
+.files {
+    word-wrap: break-word;
+}

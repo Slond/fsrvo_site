@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Личный кабинет
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="col-xs-12 col-md-8 col-ld-8 mx-auto">
+                <div class='text-center fs-3'>
+                    Регистрация
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_username" class="form-label">
+                        <label class="">Логин:</label>
+                    </div>
+                    <input class="form-control" type="text" id="username" name="username"  placeholder="Логин" autofocus required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_password1" class="form-label">
+                        <label class="">Пароль:</label>
+                    </div>
+                    <input class="form-control" type="password" minlength='8' id="password1" name="password1"  placeholder="Пароль" required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_password2" class="form-label">
+                        <label class="">Повторите пароль:</label>
+                    </div>
+                    <input class="form-control" type="password" minlength='8' id="password2" name="password2"  placeholder="Повторить пароль" required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_email" class="form-label">
+                        <label class="">E-mail:</label>
+                    </div>
+                    <input class="form-control" type="email" id="e-mail" name="e-mail"  placeholder="E-mail" required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_last_name" class="form-label">
+                        <label class="">Фамилия:</label>
+                    </div>
+                    <input class="form-control" type="text" id="last_name" name="last_name"  placeholder="Фамилия" required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_first_name" class="form-label">
+                        <label class="">Имя:</label>
+                    </div>
+                    <input class="form-control" type="text" id="first_name" name="first_name"  placeholder="Имя" required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto">
+                    <div for="id_numclass" class="form-label">
+                        <label class="">Номер класса:</label>
+                    </div>
+                    <input class="form-control" type="number" max=11 min=0 id="numclass" name="numclass"  placeholder="Номер класса" required>
+                </div>
+                <div class="col-xs-12 col-md-8 col-ld-8 mt-2 mx-auto text-center">
+                    <button type="submit" class="btn btn-primary" value='submit'>Зарегистрироваться</button>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+                <div class='text-center fs-5'>
+                    После регистрации обратитесь к своему преподавателю, он даст вам доступ.
+                </div>
+                {% if error %}
+                    <div class="alert alert-danger col-lg-8 mt-2 mx-auto justify-content-center" role="alert">
+                        {{error}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+            </div>
+        </form>
+        <div class="col-md-2 col-lg-2 d-sm-block d-none"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Платформа
+{% endblock %}
+{%block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-lg-3 d-sm-block d-none border border-bottom-0">
+            {% for item in news %}
+            <div class="card text-left mt-1">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.header}}</h5>
+                  <p class="card-text text-truncate">{{item.news_text}}</p>
+                  <a href="{% url 'one_news' item.slug %}" class="btn btn-sm btn-outline-primary">Перейти</a>
+                </div>
+                <div class="card-footer text-muted">{{item.date|date:'d/m/Y'}}</div>
+              </div> 
+            {% endfor %}
+            <a href="{% url 'news' %}"class="btn mt-2 btn-primary">Смотреть все новости</a>
+        </div>
+        <div class="col-xs-12 col-md-6 col-ld-6">
+            <div class="row" id="boxes">
+                <div class="col-lg-6 mb-2 mt-2">
+                    <a href="{% url 'school' %}" class="btn btn-outline-primary btn-lg btn-block"><img src="https://img.icons8.com/external-outline-astudio/64/000000/external-school-high-school-outline-astudio-3.png">
+                        Училища
+                    </a>
+                </div>
+                <div class="col-lg-6 mb-2 mt-2">
+                    <a href="{% url 'rangs' %}" class="btn btn-outline-primary btn-lg"><img src="https://img.icons8.com/external-outline-astudio/64/000000/external-medal-high-school-outline-astudio.png">
+                        Ранги
+                    </a>
+                </div>
+                {% if user.is_authenticated and user.student.school_name or user.is_staff %}
+                <div class="col-lg-6 mb-2 mt-2">
+                    <a href="{% url 'attestate' %}" class="btn btn-outline-primary btn-lg"><img src="https://img.icons8.com/external-outline-astudio/64/000000/external-business-business-pack-outline-astudio-4.png">
+                        Аттестации
+                    </a>
+                </div>
+                {% else %}
+                <div class="col-lg-6 mb-2 mt-2">
+                    <a href="{% url 'photo' %}" class="btn btn-outline-primary btn-lg disabled"><img src="https://img.icons8.com/external-outline-astudio/64/000000/external-business-user-interface-pack-outline-astudio-10.png">
+                        Фотографии
+                    </a>
+                </div>
+                {% endif %}
+                {% if user.is_authenticated and user.student.school_name or user.is_staff %}
+                    <div class="col-lg-6 mb-2 mt-2">
+                        <a href="{% url 'files' %}" class="btn btn-outline-primary btn-lg"><img src="https://img.icons8.com/external-outline-astudio/64/000000/external-school-high-school-outline-astudio-5.png">
+                            Учебные материалы
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col-lg-6 mb-2 mt-2">
+                        <a href="{% url 'contact' %}" class="btn btn-outline-primary btn-lg"><img src="https://img.icons8.com/external-outline-astudio/64/000000/external-business-contact-us-outline-astudio-15.png">
+                            Контакты
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-12 mb-2 mt-2 mb-2 border-top" id="form_question">
+                <div class="text-center mb-2">
+                    <h4 class='mt-2'>Форма вопросов и заявок</h4>
+                </div>
+                {% if request.method == "POST" %}
+                <div class="alert alert-success d-flex" role="alert">
+                    <p class="alert-heading fs-6">Спасибо за обращение! Мы получили ваш вопрос и обязательно свяжемся в ближайшее время.</p>
+                  </div>
+                {% endif %}
+                <form enctype='multipart/form-data' method='post'>
+                    {% csrf_token %}
+                    <div class="form-floating mb-2">
+                        {{form.name.errors}}
+                        {{form.name}}
+                        <label for={{form.name.id_for_label}} class="floatingInputGrid">Ваше имя</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        {{form.email.errors}}
+                        {{form.email}}
+                        <label for={{form.email.id_for_label}} class="floatingInputGrid">E-mail адрес</label>
+                    </div>
+                    <div class="col-lg-12 mt-2">
+                        {{form.art.errors}}
+                        <label for={{form.art.id_for_label}} class="form-label">Причина обращения</label>
+                        {{form.art}}
+                        <datalist id="themeOptions">
+                            <option value="Вопрос по Пионерам">
+                            <option value="Вопрос по мероприятию">
+                            <option value="Общий вопрос">
+                            <option value="Подключение к программе с ФСРВО">
+                        </datalist>
+                    </div>
+                    <div class="col-lg-12 mt-2">
+                        {{form.textarea.errors}}
+                        <label for={{form.textarea.id_for_label}} class="form-label">Ваш вопрос</label>
+                        {{form.textarea}}
+                    </div>
+                    <div class="d-grid gap-2 mt-2 mb-2 mx-auto col-8">
+                        <input type="submit" class="btn btn-primary" value='Отправить'>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="d-none d-lg-block col-lg-3 border border-bottom-0 mt-3">
+            Google Calendar
+        </div>
+    </div>
+</div>
+
+{% endblock %}

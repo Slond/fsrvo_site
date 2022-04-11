@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Ранги
+{% endblock %}
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-3 col-lg-3"></div>
+        <div class="col-xs-12 col-md-6 col-ld-6">
+            <div class="row">
+                <div class="col-lg-6 mb-2 mt-2">
+                    <a href='{% url "rangs_school" id=1 %}' class="btn btn-outline-primary btn-lg align-center">Рейтинг учебных заведений</a>
+                </div>
+                <div class="col-lg-6 mb-2 mt-2">
+                    <a href='{% url "rangs_students" id=1 %}' class="btn btn-outline-primary btn-lg justify-content-center">Рейтинг учащихся</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3"></div>
+    </div>
+</div>
+{% endblock %}

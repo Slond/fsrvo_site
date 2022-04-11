@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Вход в личный кабинет
+{% endblock %}
+
+{% block body %}
+<form method='post'>
+    {% csrf_token %}
+    <div class="col-md-2 mt-2 mx-auto">
+        <div class="form-label">
+        <label class="">Логин</label>
+        </div>
+        <div class="controls">
+            <input class="form-control" type="text" id="username" name="username"  placeholder="Логин" required>
+        </div>
+    </div>
+    <div class="col-md-2 mt-2 mx-auto">
+        <label for="Password" class="form-label">Пароль</label>
+        <div class="controls">
+            <input class="form-control" type="password" name="password" id="password" placeholder="Пароль" required>
+        </div>
+    </div>
+    <div class="d-grid col-2 mt-2 mx-auto">
+        <button type="submit" class="btn btn-primary" value='login'>Войти</button>
+        <input type="hidden" name="next" value="{{ next }}" />
+    </div>
+    <div class="col-md-2 mx-auto">
+        <a href="{% url 'password_reset' %}">Забыли пароль?</a>
+    </div>
+    {% if form.errors %}
+    <div class="alert alert-danger col-lg-2 mt-2 mx-auto justify-content-center" role="alert">
+        Неверный логин или пароль
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+</form>
+{% endblock %}

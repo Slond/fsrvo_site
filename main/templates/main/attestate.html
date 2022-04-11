@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Аттестация
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            {% for item in quiz %}
+            <div class="card mt-2">
+                <h4 class="card-title ms-2">{{item.name}}</h4>
+                <h5 class="card-text ms-2 fw-normal">{{item.desc}}</h5>
+                <h5 class="card-text ms-2 fw-normal">
+                    Вопросов: {{item.questions}}
+                </h5>
+                <h5 class="card-text ms-2 fw-normal">Время на выполнение аттестации: {{item.time}} минут</h5>
+                <button class="btn btn-primary col-8 mx-auto mb-2" type='button' data-bs-toggle="modal" data-bs-target='#staticBackdrop{{item.id}}'>Начать аттестацию</button>
+                <div class="modal fade" id="staticBackdrop{{item.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{item.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Выполнение аттестации начнется <b>сразу же</b>.</br>
+                            Каждый переход по данной ссылке запоминается. Если будет более, чем один переход по ссылке, балл за аттестацию будет снижен!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <a href="{% url 'one_attestate' item.number %}" class="btn btn-primary col-8 mx-auto mb-2">Перейти к аттестации</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+  
+{% endblock %}

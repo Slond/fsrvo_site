@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Сменить фото
+{% endblock %}
+{% block body %}
+<form method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="col-md-6 mt-2 mx-auto">
+        Загрузить новое фото
+        <input class="form-control" type="file" id="photo" name="photo"  placeholder="Старый пароль" required>
+        Обратите внимание, фото меняется не сразу
+    </div>
+    <div class="d-grid col-2 mt-2 mx-auto">
+        <button type="submit" class="btn btn-primary" value='submit'>Сменить фото</button>
+        <input type="hidden" name="next" value="{{ next }}" />
+    </div>
+    {% if form.errors %}
+        <div class="alert alert-danger col-lg-5 mt-2 mx-auto justify-content-center" role="alert">
+            {{form.errors}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+</form>
+{% endblock %}
