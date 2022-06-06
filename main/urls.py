@@ -23,4 +23,6 @@ urlpatterns = [
     path('change_photo', views.change_photo, name='change_photo'),
     path('registration', views.registration, name='registration'),
     path('attestate_data', views.attestate_data, name='attestate_data'),
+    path('attestate_result', views.attestate_result, name='attestate_result'),
+    path('attestate_result/<int:second>', views.attestate_class, name='attestate_class'),
 ]

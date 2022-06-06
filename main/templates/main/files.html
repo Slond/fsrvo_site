@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Учебные материалы
+{% endblock %}
+{% block body %}
+<div class="container-fluid mt-2">
+    <p class='fs-3 text-center'>Учебные материалы</p>
+    <div class="row">
+        <div class='col-md-1 col-lg-1'></div>
+        <div class='col-md-10 col-lg-10 col-sm-12 col-xs-12'>
+            <div class="row">
+                <div class='col-md-5 col-lg-5 col-sm-12 col-xs-12'>
+                    <table class="table table-striped files">
+                        <thead>
+                            <tr class='d-flex'>
+                                <th class="col-1">№</th>
+                                <th class="col-5">Название</th>
+                                <th class="col-6">Ссылка на скачивание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class='d-flex'>
+                                <th class="col-1">1</th>
+                                <td class="col-5">Сборка и пилотирование</td>
+                                <td class="col-6"><a href='https://github.com/Slond/pioneer_edu/blob/main/Сборка%20и%20пилотирование.pdf'>Сборка и пилотирование</a></td>
+                            </tr>
+                            <tr class='d-flex'>
+                                <th class="col-1">2</th>
+                                <td class="col-5">Программирование</td>
+                                <td class="col-6"><a href='https://github.com/Slond/pioneer_edu/blob/main/Программирование.pdf'>Программирование</a></td>
+                            </tr>
+                            <tr class='d-flex'>
+                                <th class="col-1">3</th>
+                                <td class="col-5">Машинное зрение</td>
+                                <td class="col-6"><a href='https://github.com/Slond/pioneer_edu/blob/main/Машинное%20зрение.pdf'>Машинное зрение</a></td>
+                            </tr>
+                            <tr class='d-flex'>
+                                <th class="col-1">4</th>
+                                <td class="col-5">Аэрофотосъемка</td>
+                                <td class="col-6"><a href='https://github.com/Slond/pioneer_edu/blob/main/Сборка%20и%20пилотирование.pdf'>Аэрофотосъемка</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class='col-md-7 col-lg-7 col-sm-12 '>
+                    <p class='fs-4'>Сборник видео-уроков</p>
+                    <!-- <iframe width="640" height="320" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    <p class='fs-4 fst-italic'>Будет доступно позднее</p>
+                </div>
+                <div class='col-12'>
+                    <p class='fs-4'>Полезные ссылки</p>
+                    <div class='list-group'>
+                        <a href="https://github.com/slond/pioneer_edu" class="list-group-item list-group-item-action">Github</a>
+                        <a href="https://github.com/Slond/pioneer_edu/tree/main/FAQ" class="list-group-item list-group-item-action">FAQ</a>
+                        <a href="https://github.com/Slond/pioneer_edu/tree/main/Прошивка" class="list-group-item list-group-item-action">Прошивки</a>
+                        <a href="https://docs.geoscan.aero/ru/master/" class="list-group-item list-group-item-action">Документация Geoscan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-1 col-lg-1'></div>
+    </div>
+</div>
+{% endblock %}

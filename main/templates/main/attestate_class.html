@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Итоги аттестации для {{class}} класса
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-lg-1 d-sm-block d-none"></div>
+        <div class="col-xs-12 col-md-10 col-ld-10">
+            <p class='fs-2 text-center'>Итоги аттестации для {{class}} класса</p>
+            <table class="table table-striped table-bordered table-hover student-rangs">
+                <thead>
+                    <tr class="">
+                        <th class=""><span class="ms-1">Училище</span></th>
+                        <th class="">Учеников писало</th>
+                        <th class="">Среднее арифм.</th>
+                        <th class="">Минимальное</th>
+                        <th class="">Максимальное</th>
+                        <th class="">Мода</th>
+                        <th class="">Коэф. отклонения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, value in data.items %}
+                    <tr class="">
+                        <th class=''><span class='ms-1'>{{key}}</span></th>
+                        <td class=''>{{value.students}}</th>
+                        <td class=''>{{value.average}}</th>
+                        <td class=''>{{value.minimum}}</th>
+                        <td class=''>{{value.maximum}}</th>
+                        <td class=''>{{value.mode}}</th>
+                        <td class=''>{{value.k}}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <div class="col-md-1 col-lg-1 d-sm-block d-none"></div>
+    </div>
+</div>
+{% endblock %}
