@@ -291,3 +291,7 @@ def attestate_class(request, second):
             pass
     return render(request, 'main/attestate_class.html', {'data':data, 'name':name.name, 'class':second})
 
+
+def attestate_answers(request, id):
+    if id == 1:
+        return render(request, 'main/attestate_first.html')

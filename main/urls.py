@@ -25,4 +25,5 @@ urlpatterns = [
     path('attestate_data', views.attestate_data, name='attestate_data'),
     path('attestate_result', views.attestate_result, name='attestate_result'),
     path('attestate_result/<int:second>', views.attestate_class, name='attestate_class'),
+    path('attestate_answers/<int:id>', views.attestate_answers, name='attestate_answers')
 ]

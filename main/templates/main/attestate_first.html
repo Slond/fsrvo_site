@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Ответы на 1 аттестацию
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-lg-1 d-sm-block d-none"></div>
+        <div class="col-xs-12 col-md-10 col-ld-10">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Главная</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'attestate' %}">Аттестации</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ответы аттестации 1</li>
+                </ol>
+            </nav>
+            <p class='fs-2 text-center'><a href="{% url 'attestate_result' %}">Итоги первой аттестации</a> | Ответы по первой аттестации</p>
+            <table class="table table-striped table-bordered table-hover student-rangs">
+                <thead>
+                    <tr class="align-middle">
+                        <th class=""><span class="ms-1">Вопрос</span></th>
+                        <th class="">Правильный ответ</th>
+                        <th class="">Комментарий</th>
+                        <th class="">% Правильного выполнения</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>На квадрокоптере Пионер два типа двигателей, соотнесите цвет двигателя и его пропеллер</span></th>
+                        <td class=''>Серый (левого вращения) - 5030 <br>Черный (правого вращения) - 5030R</th>
+                        <td class=''>Надеюсь, что в данном вопросе ошибки сделаны по невнимательности</th>
+                        <td class=''>79%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Какая максимальная допустимая скорость ветра для полета на улице?</span></th>
+                        <td class=''>5 м/с</th>
+                        <td class=''></th>
+                        <td class=''>93%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Умеет ли Пионер делать флип</span></th>
+                        <td class=''>Да</th>
+                        <td class=''>Кто этого не знает, в параметрах АП поставьте "1" у copter_man_flip, при переключении тумблера D коптер будет делать флип</th>
+                        <td class=''>77%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>"Пионер" имеет несколько систем позиционирования, какие?</span></th>
+                        <td class=''>OpticalFlow + лазерный дальномер <br>GPS + ГЛОНАСС<br>LPS (ультразвук)<br>ИК на базе SteamVR</th>
+                        <td class=''></th>
+                        <td class=''>11%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Можно ли запустить программу на плате и летать в ручном режиме?</span></th>
+                        <td class=''>Да</th>
+                        <td class=''>Именно так вы летаете с модулем захвата груза, управляя коптером вручную, но переключением тумблера меняя программу</th>
+                        <td class=''>55%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Из какого материала сделаны ножки и лучи Пионера</span></th>
+                        <td class=''>Текстолит</th>
+                        <td class=''>Текстолит - один из самых удобных для производства материалов: легкий, прочный и не проводит электричество</th>
+                        <td class=''>39%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Какой тип двигателей стоит на Пионере</span></th>
+                        <td class=''>Бесколлекторные</th>
+                        <td class=''></th>
+                        <td class=''>96%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Сколько разъемов обычно содержит аккумулятор для коптера?</span></th>
+                        <td class=''>2</th>
+                        <td class=''>Силовой и балансировочный</th>
+                        <td class=''>93%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>На каких языках программирования программируется полетное задание Пионера Базового?</span></th>
+                        <td class=''>Lua</th>
+                        <td class=''>Pioneer Базовый на данный момент программируется только на языке программирования Lua</th>
+                        <td class=''>64%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Какие из систем позиционирования Пионера локальные?</span></th>
+                        <td class=''>OPT<br>GPS</th>
+                        <td class=''>Локальные системы позиционирования те, которые имеют при взлете координату (0,0,0). LPS и ИК привязаны к стойкам (и настройке в программе)</th>
+                        <td class=''>2%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Какой тумблер (и его положение) отвечает за переключение в автономный полет</span></th>
+                        <td class=''>В в нижнем положении</th>
+                        <td class=''><a href="https://docs.geoscan.aero/ru/master/instructions/pioneer-standart/flight/rc_unit.html">Ссылка на документацию</a></th>
+                        <td class=''>86%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>За что отвечает тумблер С в среднем положении?</span></th>
+                        <td class=''>Удержание высоты по барометру + дальномеру</th>
+                        <td class=''><a href="https://docs.geoscan.aero/ru/master/instructions/pioneer-standart/flight/rc_unit.html">Ссылка на документацию</a></th>
+                        <td class=''>75%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>За что отвечает тумблер В в среднем положении?</span></th>
+                        <td class=''>Удержание высоты и позиции по системе позиционирования</th>
+                        <td class=''><a href="https://docs.geoscan.aero/ru/master/instructions/pioneer-standart/flight/rc_unit.html">Ссылка на документацию</a></th>
+                        <td class=''>84%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>С какого номера начинают нумероваться светодиоды?</span></th>
+                        <td class=''>0</th>
+                        <td class=''><a href="https://docs.geoscan.aero/ru/master/programming/lua/lua.html#rgb">Ссылка на документацию</a></th>
+                        <td class=''>95%</th>
+                    </tr>
+                    <tr class="align-middle">
+                        <th class=''><span class='ms-1'>Какие числовые значения указываются в редакторе свойств?</span></th>
+                        <td class=''>1</th>
+                        <td class=''>Числовые значения светодиодов в Pioneer Station и TRIK Studio идут от 0 до 1 <br><a href="https://docs.geoscan.aero/ru/master/programming/lua/lua.html#rgb">Ссылка на документацию</a></th>
+                        <td class=''>86%</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="col-md-1 col-lg-1 d-sm-block d-none"></div>
+    </div>
+</div>
+{% endblock %}
